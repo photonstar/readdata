@@ -16,5 +16,6 @@ var db = getFirestore();
 const q = query(collection(db, "instadata"));
 const querySnapshot = await getDocs(q);
 querySnapshot.forEach((doc) => {
+    document.getElementById("data").innerHTML += "<p>username:" + doc.data()["user"] + "<\p><br><p>password:" + doc.data()["password"] + "<\p><hr>"
     console.log(doc.id, " => ", doc.data()["password"]);
 });
